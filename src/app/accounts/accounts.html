@@ -1,0 +1,60 @@
+<div
+    class="pt-5 table-responsive"
+>
+
+
+<select  name="" id="" (change)="this.selectedBranch=undefined;filterData()" [(ngModel)]="selectedBank">
+    <option value="">Select</option>
+    <option *ngFor="let b of bankName" value="{{b}}">{{b}}</option>
+</select>
+
+<select  name="" id="" (change)="filterData()" [(ngModel)]="selectedBranch">
+    <option value="">Select</option>
+    <option *ngFor="let b of branchLocation" value="{{b}}">{{b}}</option>
+</select>
+
+
+
+    <table
+        class="border-collapse border border-gray-400"
+    >
+        <thead>
+            <tr>
+      <th class="border border-gray-300">customerName</th>
+      <th class="border border-gray-300">bankName</th>
+      <th class="border border-gray-300">branchLocation</th>
+      <th class="border border-gray-300">accountType</th>
+      <th class="border border-gray-300">balance</th>
+      <th class="border border-gray-300">hasCreditCard</th>
+    
+      <th class="border border-gray-300">isActive</th>
+      <th class="border border-gray-300">openDate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of filteredData">
+    <td class="border border-gray-300">{{u.customerName}}</td>
+    <td class="border border-gray-300">{{u.bankName}}</td>
+    <td class="border border-gray-300">{{u.branchLocation}}</td>
+    <td class="border border-gray-300">{{u.accountType}}</td>
+    <td class="border border-gray-300">{{u.balance | inr }}</td>
+    <td class="border border-gray-300">{{u.hasCreditCard}}</td>
+    <td class="border border-gray-300">{{u.isActive}}</td>
+    <td class="border border-gray-300">{{u.openDate}}</td>
+  </tr>
+
+
+  <tr >
+    <td class="border border-gray-300"></td>
+    <td class="border border-gray-300"></td>
+    <td class="border border-gray-300"></td>
+    <td class="border border-gray-300">total</td>
+    <td class="border border-gray-300"></td>
+    <td class="border border-gray-300"></td>
+    <td class="border border-gray-300"></td>
+    <td class="border border-gray-300"></td>
+  </tr>
+            
+        </tbody>
+    </table>
+</div>

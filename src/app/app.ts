@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
+import { Dataservice } from './dataservice';
 
 @Component({
   selector: 'app-root',
@@ -9,3 +10,8 @@ import { Component, signal } from '@angular/core';
 export class App {
   protected readonly title = signal('bank');
 }
+
+
+
+
+
