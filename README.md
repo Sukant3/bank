@@ -1,59 +1,37 @@
-# Bank
+Olith Banking – Modern Banking Dashboard
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.0.
+Welcome to Olith Banking, a responsive and interactive banking management system built with Angular.
+It provides a seamless UI for account management, money transfers, and financial tracking, along with real-time data filtering and export features.
+_______________________________________________________________________________________________________________________________________________
 
-## Development server
+🚀 Features
 
-To start a local development server, run:
+✅ Interactive UI Components – Clean and modern dashboard for banking operations
+✅ Filtering System – Filter accounts by bank name for better visibility
+✅ JSON Pipe Integration – Data successfully displayed on the frontend using Angular’s built-in json pipe
+✅ Export to Excel/CSV – Data converted and downloaded using Papa Parse (npm)
+✅ Responsive Design – Works across devices with smooth navigation
+_________________________________________________________________________________________________________________________
+🛠️ Tech Stack
 
-```bash
-ng serve
-```
+⚡ Frontend: Angular
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+🎨 Styling: Tailwind CSS
 
-## Code scaffolding
+📊 Data Handling: JSON Pipe & Services
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+📥 Export Feature: Papa Parse (CSV/Excel Export)
+_______________________________________________________________________________________________________________________________
 
-```bash
-ng generate component component-name
-```
+📈 Performance Highlight
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Implemented Angular Pipes for efficient data rendering.
 
-```bash
-ng generate --help
-```
+Added bank filter system to improve data accessibility.
 
-## Building
+Integrated Papa Parse to export JSON data into Excel/CSV format.
+________________________________________________________________________________________________________________________________
 
-To build the project run:
+🙌 Acknowledgements
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Thanks to Angular for its robust framework and Papa Parse for easy data export.
