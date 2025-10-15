@@ -1,32 +1,24 @@
 
 
 <div class="mx-12 mt-5">
-    
-
-<div class="w-full max-w-sm min-w-[200px]">
-  <div class="relative">
-    <input
-      class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md pl-3 pr-28 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
-      placeholder="Search" 
-    />
-    <button
-      class="absolute top-1 right-1 flex items-center rounded bg-slate-800 py-1 px-2.5 border border-transparent text-center text-sm text-white transition-all shadow-sm hover:shadow focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-      type="button"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 mr-2">
-        <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
-      </svg>
- 
-      Search
-    </button> 
-  </div>
+    <div class="mb-8 max-w-4xl">
+        <div class="relative">
+            <input
+                class="w-full bg-[#374151] placeholder:text-gray-400 text-white text-base border border-[#374151] rounded-xl pl-4 pr-16 py-3 transition duration-300 ease focus:outline-none focus:border-indigo-500 hover:border-gray-500 shadow-xl focus:shadow-indigo-500/50"
+                placeholder="Search transactions, payees, or help..."
+            />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 absolute top-1/2 -translate-y-1/2 right-4 text-gray-400">
+                <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
+            </svg>
+        </div>
+    </div>
 </div>
 
+<h1 class="text-2xl font-semibold mx-14 mb-5 text-black">
+        Welcome back <span class="text-indigo-400">Sukant !</span>
+    </h1>
 
-</div>
-
-
-<div class="grid grid-cols-4 grid-rows-4 gap-4 p-5  mt-12">
+<div class="grid grid-cols-4 grid-rows-4 gap-4 p-5  mt-12 mx-2">
     <div class="bg-green-200 h-40  text-green-500 rounded p-7 hover:bg-green-600 hover:text-amber-50 ">
         <div class="mb-5 ">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -71,12 +63,39 @@
         </div>
         Transfer to another bank
     </div>
-
+   
 
 
 
     
 </div>
+
+
+<!-- <div class="">
+    <div>{{m}}:{{sec}}:{{ms}}</div>
+    {{time/100}}
+    
+    <button (click)="start()">Start</button>
+    <button (click)="pause()">Pause</button>
+    <button (click)="stop()">Stop</button>
+</div>
+
+
+  
+  <div>{{ left.m }}:{{ left.sec }}:{{ left.ms }}</div>
+  <div>{{ right.m }}:{{ right.sec }}:{{ right.ms }}</div>
+
+<div class="container flex gap-4">
+  <button class="bg-blue-600 p-2 rounded "
+    (click)="startLeft()" 
+    (contextmenu)="startRight($event)">
+    Start
+  </button>
+
+  <button class="bg-green-600 p-2 rounded" (click)="pauseAll()">Pause Both</button>
+  <button class="bg-red-600 p-2 rounded" (click)="stopAll()">Stop Both</button>
+</div> -->
+
 
 
 

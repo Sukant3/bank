@@ -1,6 +1,43 @@
-<p>cards works!</p>
-{{data|json}}
-<button class="bg-blue-600 rounded p-2 ">
-    <a href="{{url}}" download="my-file.csv">Download</a>
-</button>
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4">
 
+    <!-- Data Processor Card -->
+    <div class="w-full max-w-lg bg-white rounded-xl shadow-2xl p-8 transition-all duration-300">
+        
+        <div class="flex items-center justify-center gap-3 mb-6">
+            <!-- Confirmation/Success Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-8 h-8 text-indigo-600">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15l4.5-4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+            <p class="text-xl font-bold text-gray-800">Data Processing Complete</p>
+        </div>
+
+        <p class="text-sm text-center text-gray-500 mb-6">
+            The data has been successfully retrieved and converted into a downloadable CSV file.
+        </p>
+
+        <!-- JSON Data Preview -->
+        <div class="mb-8">
+            <h3 class="text-md font-semibold text-gray-700 mb-2">Data Preview:</h3>
+            <!-- Display JSON in a styled block for reference -->
+            <pre class="bg-gray-800 text-green-400 p-4 rounded-lg overflow-x-auto max-h-40 text-xs shadow-inner">{{data|json}}</pre>
+        </div>
+
+        <!-- Download Button -->
+        <div class="text-center">
+            <!-- Button is disabled until 'url' is generated -->
+            <button 
+                class="w-full bg-indigo-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-indigo-700 transition duration-150 transform hover:scale-[1.01] focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50 flex items-center justify-center gap-2 disabled:bg-indigo-300" 
+                [disabled]="!url"
+            >
+                <!-- Anchor tag inside button for download functionality -->
+                <a [href]="url" download="financial-data.csv" class="flex items-center justify-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                    </svg>
+                    Download CSV
+                </a>
+            </button>
+            <p *ngIf="!url" class="text-sm text-indigo-500 mt-3 animate-pulse">Loading data and preparing CSV...</p>
+        </div>
+    </div>
+</div>

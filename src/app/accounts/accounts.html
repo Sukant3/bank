@@ -1,60 +1,87 @@
-<div
-    class="pt-5 table-responsive"
->
+<div class="p-8  min-h-screen text-gray-100 font-sans">
+
+    <h2 class="text-3xl font-extrabold text-indigo-400 mb-6 border-b border-gray-700 pb-2">Account Data Explorer</h2>
+   <div class="flex flex-col sm:flex-row gap-4 mb-8">
+        
+      
+        <select 
+            name="bankSelect" 
+            id="bankSelect" 
+            (change)="selectedBranch=''; filterData()" 
+            [(ngModel)]="selectedBank"
+            class="block w-full sm:w-64 px-4 py-3 text-gray-200 bg-[#374151] border border-gray-600 rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200"
+        >
+            <option value="">Filter by Bank Name</option>
+            <option *ngFor="let b of bankName" [value]="b" class="bg-[#1F2937]">{{b}}</option>
+        </select>
+
+        <select 
+            name="branchSelect" 
+            id="branchSelect" 
+            (change)="filterData()" 
+            [(ngModel)]="selectedBranch"
+            class="block w-full sm:w-64 px-4 py-3 text-gray-200 bg-[#374151] border border-gray-600 rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200"
+        >
+            <option value="">Filter by Branch Location</option>
+            <option *ngFor="let b of branchLocation" [value]="b" class="bg-[#1F2937]">{{b}}</option>
+        </select>
+    </div>
 
 
-<select  name="" id="" (change)="this.selectedBranch=undefined;filterData()" [(ngModel)]="selectedBank">
-    <option value="">Select</option>
-    <option *ngFor="let b of bankName" value="{{b}}">{{b}}</option>
-</select>
-
-<select  name="" id="" (change)="filterData()" [(ngModel)]="selectedBranch">
-    <option value="">Select</option>
-    <option *ngFor="let b of branchLocation" value="{{b}}">{{b}}</option>
-</select>
-
-
-
-    <table
-        class="border-collapse border border-gray-400"
-    >
-        <thead>
-            <tr>
-      <th class="border border-gray-300">customerName</th>
-      <th class="border border-gray-300">bankName</th>
-      <th class="border border-gray-300">branchLocation</th>
-      <th class="border border-gray-300">accountType</th>
-      <th class="border border-gray-300">balance</th>
-      <th class="border border-gray-300">hasCreditCard</th>
-    
-      <th class="border border-gray-300">isActive</th>
-      <th class="border border-gray-300">openDate</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let u of filteredData">
-    <td class="border border-gray-300">{{u.customerName}}</td>
-    <td class="border border-gray-300">{{u.bankName}}</td>
-    <td class="border border-gray-300">{{u.branchLocation}}</td>
-    <td class="border border-gray-300">{{u.accountType}}</td>
-    <td class="border border-gray-300">{{u.balance | inr }}</td>
-    <td class="border border-gray-300">{{u.hasCreditCard}}</td>
-    <td class="border border-gray-300">{{u.isActive}}</td>
-    <td class="border border-gray-300">{{u.openDate}}</td>
-  </tr>
-
-
-  <tr >
-    <td class="border border-gray-300"></td>
-    <td class="border border-gray-300"></td>
-    <td class="border border-gray-300"></td>
-    <td class="border border-gray-300">total</td>
-    <td class="border border-gray-300"></td>
-    <td class="border border-gray-300"></td>
-    <td class="border border-gray-300"></td>
-    <td class="border border-gray-300"></td>
-  </tr>
+    <div class="overflow-x-auto shadow-2xl rounded-xl border border-gray-700">
+        <table class="w-full whitespace-nowrap">
             
-        </tbody>
-    </table>
+       
+            <thead class="bg-[#2D3748] border-b border-gray-700">
+                <tr>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-gray-400 uppercase tracking-wider">Customer Name</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-gray-400 uppercase tracking-wider">Bank Name</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-gray-400 uppercase tracking-wider">Branch Location</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-gray-400 uppercase tracking-wider">Account Type</th>
+                    <th class="px-6 py-4 text-right text-xs font-bold text-gray-400 uppercase tracking-wider">Balance</th>
+                    <th class="px-6 py-4 text-center text-xs font-bold text-gray-400 uppercase tracking-wider">Credit Card</th>
+                    <th class="px-6 py-4 text-center text-xs font-bold text-gray-400 uppercase tracking-wider">Active</th>
+                    <th class="px-6 py-4 text-left text-xs font-bold text-gray-400 uppercase tracking-wider">Open Date</th>
+                </tr>
+            </thead>
+            
+
+            <tbody class="divide-y divide-gray-700 bg-[#242D3A]">
+            
+                <tr 
+                    *ngFor="let u of filteredData; let i = index"
+            
+                    class="text-sm text-gray-200 transition duration-150 ease-in-out hover:bg-[#374151]"
+                >
+                    <td class="px-6 py-4 font-semibold text-white">{{u.customerName}}</td>
+                    <td class="px-6 py-4">{{u.bankName}}</td>
+                    <td class="px-6 py-4">{{u.branchLocation}}</td>
+                    <td class="px-6 py-4 text-gray-300">{{u.accountType}}</td>
+                   
+                    <td class="px-6 py-4 text-right font-extrabold text-green-400">{{u.balance | inr }}</td>
+                    <td class="px-6 py-4 text-center">
+                        <span *ngIf="u.hasCreditCard" class="inline-flex items-center rounded-full bg-indigo-600/30 px-3 py-1 text-xs font-medium text-indigo-300">Yes</span>
+                        <span *ngIf="!u.hasCreditCard" class="inline-flex items-center rounded-full bg-gray-600/30 px-3 py-1 text-xs font-medium text-gray-400">No</span>
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        <div class="flex justify-center">
+                            <span *ngIf="u.isActive" class="w-3 h-3 bg-green-500 rounded-full shadow-lg shadow-green-500/50"></span>
+                            <span *ngIf="!u.isActive" class="w-3 h-3 bg-red-500 rounded-full shadow-lg shadow-red-500/50"></span>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 text-gray-400">{{u.openDate}}</td>
+                </tr>
+
+                
+                <tr class="bg-[#374151] font-bold text-base text-white border-t border-indigo-500">
+                    <td class="px-6 py-4" colspan="3"></td>
+                    <td class="px-6 py-4 text-right" colspan="1">TOTAL BALANCE</td>
+                 
+                    <td class="px-6 py-4 text-right text-yellow-400 font-extrabold text-lg">{{total | inr}}</td> 
+                    <td class="px-6 py-4" colspan="3"></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
 </div>
